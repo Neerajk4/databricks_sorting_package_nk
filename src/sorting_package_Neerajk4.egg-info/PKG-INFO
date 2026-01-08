@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: sorting_package_Neerajk4
+Version: 0.1.0
+Summary: A brief test in creating packages in python in order to test out
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# Example Package
+
+This is a simple example package. You can use
+[GitHub-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
+
+### Sample code
+* In this code are functions for sorting, as a test for importing into other environments
