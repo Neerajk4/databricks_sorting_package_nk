@@ -1,65 +1,67 @@
 
+class sorting_class_nk():
 
 ##Average complexity is O(n * log(n))
 ##worst case complexity is O(n2)
+    @staticmethod
+    def quicksort_nk(numbers, low, high):
+        if low < high:
+            pivot = numbers[high]
+            i = low - 1
+            for j in range(low, high):
+                if numbers[j] <= pivot:
+                    i = i + 1
+                    numbers[i], numbers[j] = numbers[j], numbers[i]
+            numbers[i + 1], numbers[high] = numbers[high], numbers[i+1]
+            pi = i + 1
+            ##print(numbers)
+            sorting_class_nk.quicksort_nk(numbers, low, pi-1)
+            sorting_class_nk.quicksort_nk(numbers, pi +1, high)
+        return numbers
 
-def quicksort_nk(numbers, low, high):
-    if low < high:
-        pivot = numbers[high]
-        i = low - 1
-        for j in range(low, high):
-            if numbers[j] <= pivot:
-                i = i + 1
-                numbers[i], numbers[j] = numbers[j], numbers[i]
-        numbers[i + 1], numbers[high] = numbers[high], numbers[i+1]
-        pi = i + 1
-        ##print(numbers)
-        quicksort_nk(numbers, low, pi-1)
-        quicksort_nk(numbers, pi +1, high)
-    return numbers
-
-def heapify(arr, n, i):
-    largest = i # Initialize largest as root
-    l = 2 * i + 1  # left = 2*i + 1
-    r = 2 * i + 2  # right = 2*i + 2
- 
- # See if left child of root exists and is
- # greater than root
-    if l < n and arr[i] < arr[l]:
-        largest = l
- 
- # See if right child of root exists and is
- # greater than root
-    if r < n and arr[largest] < arr[r]:
-        largest = r
- 
- # Change root, if needed
-    if largest != i:
-         arr[i],arr[largest] = arr[largest],arr[i] # swap
- 
-  # Heapify the root.
-         heapify(arr, n, largest)
-         
-    ##print(arr)
+    @staticmethod
+    def heapify(arr, n, i):
+        largest = i # Initialize largest as root
+        l = 2 * i + 1  # left = 2*i + 1
+        r = 2 * i + 2  # right = 2*i + 2
     
- #%%
-# The main function to sort an array of given size
-def heapSort_nk(arr):
- n = len(arr)
- 
- # Build a maxheap.
- # Since last parent will be at ((n//2)-1) we can start at that location.
- for i in range(n // 2 - 1, -1, -1):
-  heapify(arr, n, i)
- 
- ##print('heap completed')
- 
- # One by one extract elements
- for i in range(n-1, 0, -1):
-     arr[i], arr[0] = arr[0], arr[i] # swap
-     heapify(arr, i, 0)
-  
- return arr
+    # See if left child of root exists and is
+    # greater than root
+        if l < n and arr[i] < arr[l]:
+            largest = l
+    
+    # See if right child of root exists and is
+    # greater than root
+        if r < n and arr[largest] < arr[r]:
+            largest = r
+    
+    # Change root, if needed
+        if largest != i:
+            arr[i],arr[largest] = arr[largest],arr[i] # swap
+    
+    # Heapify the root.
+            sorting_class_nk.heapify(arr, n, largest)
+            
+        ##print(arr)
+    
+    # The main function to sort an array of given size
+    @staticmethod
+    def heapSort_nk(arr):
+        n = len(arr)
+        
+        # Build a maxheap.
+        # Since last parent will be at ((n//2)-1) we can start at that location.
+        for i in range(n // 2 - 1, -1, -1):
+            sorting_class_nk.heapify(arr, n, i)
+        
+        ##print('heap completed')
+        
+        # One by one extract elements
+        for i in range(n-1, 0, -1):
+            arr[i], arr[0] = arr[0], arr[i] # swap
+            sorting_class_nk.heapify(arr, i, 0)
+        
+        return arr
 
 
 
